@@ -1,0 +1,270 @@
+/* Allgemeine Einstellungen */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #333333;
+    --background-overlay: rgba(0, 0, 0, 0.3);
+    --background-light: #f9f9f9;
+    --background-dark: #121212;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --button-hover-color: #388e3c;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body[data-theme="dark"] {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+body[data-theme="light"] {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+/* Login Background */
+.login-background {
+     width: 100%;
+     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('work-life-balance.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    }
+    
+    .login-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    }
+
+/* Login Container and Dashboard Container */
+.login-container, .dashboard-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 330px;
+    border: 3px solid #89c88b;
+    animation: fadeIn 1s ease-out;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body[data-theme="dark"] .login-container,
+body[data-theme="dark"] .dashboard-container {
+    background: rgba(18, 18, 18, 0.85);
+    color: var(--text-light);
+}
+
+.dashboard-container h1, .login-header h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 5;
+}
+
+.login-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+}
+
+/* Eingabefelder und Labels */
+.input-container {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.input-container label {
+    margin-bottom: 5px;
+    display: block;
+    font-size: 1rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+body[data-theme="dark"] .input-wrapper input {
+    background-color: #333333;
+    border-color: #666666;
+    color: var(--text-light);
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.input-wrapper i:hover {
+    color: var(--primary-color);
+}
+
+.input-wrapper input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Buttons */
+button.submit-btn, button.logout-btn {
+    width: 50%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button.submit-btn:hover, button.logout-btn:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Nachricht-Box für Erfolg oder Fehler */
+.message-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    z-index: 9999;
+    display: none;
+}
+
+.message-box.success {
+    background-color: #4CAF50;
+}
+
+.message-box.error {
+    background-color: #f44336;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+    .login-container, .dashboard-container {
+        width: 80%;
+    }
+
+    .login-header h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Container für Datum und Verweildauer */
+#dateTimeContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+    font-family: 'Arial', sans-serif;
+}
+
+.date-time-box {
+    background-color: rgba(12, 153, 16, 0.896);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    text-align: center;
+}
+
+#dateTimeDisplay {
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+}
+
+#loginTimeDisplay {
+    font-size: 0.90rem;
+    color: wheat;
+    font-weight: 350;
+}
+
+
+/* Styling für das Sprachauswahl-Dropdown */
+.language-selector {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    z-index: 20; /* Damit es über dem Login-Bereich liegt */
+}
+
+.language-selector select {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+

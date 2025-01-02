@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkBalance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="4661334.png">
+    <!-- FontAwesome für Symbole -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-background">
+        <!-- Login Section -->
+        <div class="login-container" id="loginSection">
+            <div class="login-header">
+                <img src="4661334.png" alt="Login Icon" class="login-icon">
+                <h1>Willkommen bei WorkBalance</h1>
+            </div>
+
+            <form id="loginForm">
+                <div class="input-container">
+                    <label for="username"><b>Benutzername</b></label>
+                    <div class="input-wrapper">
+                        <input type="text" name="username" id="username" placeholder="Benutzername" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="password"><b>Passwort</b></label>
+                    <div class="input-wrapper">
+                        <input type="password" name="password" id="password" placeholder="Passwort" required>
+                        <i id="togglePassword" class="fas fa-eye"></i>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Anmelden</button>
+            </form>
+        </div>
+
+        
+
+        <!-- Dashboard Section -->
+        <div class="dashboard-container" id="dashboardSection" style="display: none;">
+            <h1>Willkommen im Dashboard</h1>
+            <p>Sie haben dich erfolgreich angemeldet!</p>
+            <button class="logout-btn" onclick="logout()">Abmelden</button>
+        </div>
+    </div>
+
+
+<!-- Container für Datum und Uhrzeit -->
+<div id="dateTimeContainer">
+    <div id="dateTimeDisplay" class="date-time-box"></div>
+    <div id="loginTimeDisplay" class="date-time-box"></div>
+</div>
+
+<div class="language-selector">
+    <label for="languageSelect">Sprache:</label>
+    <select id="languageSelect" onchange="changeLanguage()">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+        <option value="ar">عربي</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="it">Italiano</option>
+    </select>
+</div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
